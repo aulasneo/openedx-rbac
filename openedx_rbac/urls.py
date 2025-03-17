@@ -1,10 +1,13 @@
 """
 URLs for openedx_rbac.
 """
-from django.urls import re_path  # pylint: disable=unused-import
-from django.views.generic import TemplateView  # pylint: disable=unused-import
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from openedx_rbac.views import GetUserPermissions
+
+router = DefaultRouter()
+router.register(r'user-permissions', GetUserPermissions, basename='user-permissions')
 
 urlpatterns = [
-    # TODO: Fill in URL patterns and views here.
-    # re_path(r'', TemplateView.as_view(template_name="openedx_rbac/base.html")),
+    path('', include(router.urls)),
 ]
