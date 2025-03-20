@@ -1,24 +1,28 @@
-from rest_framework import viewsets, permissions
+from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import get_user_model
 from bridgekeeper import perms
 
 User = get_user_model()
 
-class GetUserPermissions(viewsets.ModelViewSet):
-    """
-    API endpoint for managing users and their roles using Bridgekeeper.
-    """
+class CheckUserPermission(APIView):
+    permission_classes = [IsAuthenticated]
 
-    @action(detail=False, methods=['get'], permission_classes=[permissions.IsAuthenticated])
-    def has_permission(self, request):
-        """ Check if the user has a specific permission using Bridgekeeper """
-        permission_codename = request.query_params.get('permission_codename')
-        if not permission_codename:
-            return Response({'error': 'Permission codename is required'}, status=400)
-        
-        # Verificar permiso usando Bridgekeeper
-        has_perm = perms.check(request.user, permission_codename)
-        
-        return Response({'has_permission': has_perm})
+    def get(self, request):
+        user_id = request.query_params.get('user_id')
+        permission_name = request.query_params.get('permission_name')
+
+        if not user_id or not permission_name:
+            return Response({'error': 'Se requieren user_id/permission_name'}, status=400)
+
+        try:
+            user = User.objects.get(id=user_id)
+        except User.DoesNotExist:
+            return Response({'error': 'Usuario no encontrado'}, status=404)
+
+        if permission_name in perms:
+            has_perm = perms[permission_name].is_possible_for(user)
+            return Response({'has_permission': has_perm})
+        else:
+            return Response({'error': 'Permiso no encontrado'}, status=400)

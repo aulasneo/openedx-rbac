@@ -8,7 +8,6 @@ import sys
 
 from setuptools import find_packages, setup
 
-
 def get_version(*file_paths):
     """
     Extract the version string from the file.
@@ -143,7 +142,7 @@ setup(
 
     include_package_data=True,
     install_requires=load_requirements('requirements/base.in'),
-    python_requires=">=3.12",
+    python_requires=">=3.11",
     license="Apache Software License 2.0",
     zip_safe=False,
     keywords='Python edx',
@@ -157,4 +156,13 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.12',
     ],
+    
+    entry_points={
+        "lms.djangoapp": [
+            "openedx_rbac = openedx_rbac.apps:OpenedxRbacConfig",
+        ],
+        "cms.djangoapp": [
+            "openedx_rbac = openedx_rbac.apps:OpenedxRbacConfig",
+        ],
+    },
 )

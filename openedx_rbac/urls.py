@@ -1,13 +1,6 @@
-"""
-URLs for openedx_rbac.
-"""
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from openedx_rbac.views import GetUserPermissions
-
-router = DefaultRouter()
-router.register(r'user-permissions', GetUserPermissions, basename='user-permissions')
+from django.urls import path
+from .views import CheckUserPermission
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('user-permissions/', CheckUserPermission.as_view(), name='user-permissions'),
 ]

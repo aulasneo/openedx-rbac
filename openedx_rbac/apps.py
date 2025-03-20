@@ -6,7 +6,6 @@ from django.apps import AppConfig
 from edx_django_utils.plugins.constants import PluginURLs, PluginSettings
 
 
-
 class OpenedxRbacConfig(AppConfig):
     """
     Configuration for the openedx_rbac Django application.
