@@ -1,0 +1,150 @@
+.annotation_safe_list.yml:
+- annotation_data: This model has no PII
+  annotation_token: '.. no_pii:'
+  extra:
+    full_comment: '{''.. no_pii:'': ''This model has no PII''}'
+    object_id: auth.Permission
+  filename: .annotation_safe_list.yml
+  found_by: safelist
+  line_number: 0
+  report_group_id: 1
+- annotation_data: This model has no PII
+  annotation_token: '.. no_pii:'
+  extra:
+    full_comment: '{''.. no_pii:'': ''This model has no PII''}'
+    object_id: admin.LogEntry
+  filename: .annotation_safe_list.yml
+  found_by: safelist
+  line_number: 0
+  report_group_id: 2
+- annotation_data: This model minimally contains a username, password, and email
+  annotation_token: .. pii
+  extra:
+    full_comment: '{''.. pii'': ''This model minimally contains a username, password,
+      and email'', ''.. pii_types'': ''username, email_address, password'', ''.. pii_retirement'':
+      ''consumer_api''}'
+    object_id: auth.User
+  filename: .annotation_safe_list.yml
+  found_by: safelist
+  line_number: 0
+  report_group_id: 3
+- annotation_data: username, email_address, password
+  annotation_token: .. pii_types
+  extra:
+    full_comment: '{''.. pii'': ''This model minimally contains a username, password,
+      and email'', ''.. pii_types'': ''username, email_address, password'', ''.. pii_retirement'':
+      ''consumer_api''}'
+    object_id: auth.User
+  filename: .annotation_safe_list.yml
+  found_by: safelist
+  line_number: 0
+  report_group_id: 3
+- annotation_data: consumer_api
+  annotation_token: .. pii_retirement
+  extra:
+    full_comment: '{''.. pii'': ''This model minimally contains a username, password,
+      and email'', ''.. pii_types'': ''username, email_address, password'', ''.. pii_retirement'':
+      ''consumer_api''}'
+    object_id: auth.User
+  filename: .annotation_safe_list.yml
+  found_by: safelist
+  line_number: 0
+  report_group_id: 3
+- annotation_data: This model has no PII
+  annotation_token: '.. no_pii:'
+  extra:
+    full_comment: '{''.. no_pii:'': ''This model has no PII''}'
+    object_id: sessions.Session
+  filename: .annotation_safe_list.yml
+  found_by: safelist
+  line_number: 0
+  report_group_id: 4
+- annotation_data: This model has no PII
+  annotation_token: '.. no_pii:'
+  extra:
+    full_comment: '{''.. no_pii:'': ''This model has no PII''}'
+    object_id: contenttypes.ContentType
+  filename: .annotation_safe_list.yml
+  found_by: safelist
+  line_number: 0
+  report_group_id: 5
+- annotation_data: This model has no PII
+  annotation_token: '.. no_pii:'
+  extra:
+    full_comment: '{''.. no_pii:'': ''This model has no PII''}'
+    object_id: auth.Group
+  filename: .annotation_safe_list.yml
+  found_by: safelist
+  line_number: 0
+  report_group_id: 6
+/home/gabriel/aulasneo/openedx-rbac/openedx_rbac/models.py:
+- annotation_data: 'True'
+  annotation_token: '.. pii:'
+  extra:
+    full_comment: "Represents a role within the system, used to assign permissions\
+      \ to users.\n\n    .. pii: True\n    .. pii_types: id\n    .. pii_retirement:\
+      \ local_api"
+    object_id: openedx_rbac.Role
+  filename: /home/gabriel/aulasneo/openedx-rbac/openedx_rbac/models.py
+  found_by: django
+  line_number: 8
+  report_group_id: 7
+- annotation_data:
+  - id
+  annotation_token: '.. pii_types:'
+  extra:
+    full_comment: "Represents a role within the system, used to assign permissions\
+      \ to users.\n\n    .. pii: True\n    .. pii_types: id\n    .. pii_retirement:\
+      \ local_api"
+    object_id: openedx_rbac.Role
+  filename: /home/gabriel/aulasneo/openedx-rbac/openedx_rbac/models.py
+  found_by: django
+  line_number: 8
+  report_group_id: 7
+- annotation_data:
+  - local_api
+  annotation_token: '.. pii_retirement:'
+  extra:
+    full_comment: "Represents a role within the system, used to assign permissions\
+      \ to users.\n\n    .. pii: True\n    .. pii_types: id\n    .. pii_retirement:\
+      \ local_api"
+    object_id: openedx_rbac.Role
+  filename: /home/gabriel/aulasneo/openedx-rbac/openedx_rbac/models.py
+  found_by: django
+  line_number: 8
+  report_group_id: 7
+- annotation_data: 'True'
+  annotation_token: '.. pii:'
+  extra:
+    full_comment: "Defines specific permissions that can be assigned to roles within\
+      \ the system.\n\n    .. pii: True\n    .. pii_types: id\n    .. pii_retirement:\
+      \ local_api"
+    object_id: openedx_rbac.Permission
+  filename: /home/gabriel/aulasneo/openedx-rbac/openedx_rbac/models.py
+  found_by: django
+  line_number: 24
+  report_group_id: 8
+- annotation_data:
+  - id
+  annotation_token: '.. pii_types:'
+  extra:
+    full_comment: "Defines specific permissions that can be assigned to roles within\
+      \ the system.\n\n    .. pii: True\n    .. pii_types: id\n    .. pii_retirement:\
+      \ local_api"
+    object_id: openedx_rbac.Permission
+  filename: /home/gabriel/aulasneo/openedx-rbac/openedx_rbac/models.py
+  found_by: django
+  line_number: 24
+  report_group_id: 8
+- annotation_data:
+  - local_api
+  annotation_token: '.. pii_retirement:'
+  extra:
+    full_comment: "Defines specific permissions that can be assigned to roles within\
+      \ the system.\n\n    .. pii: True\n    .. pii_types: id\n    .. pii_retirement:\
+      \ local_api"
+    object_id: openedx_rbac.Permission
+  filename: /home/gabriel/aulasneo/openedx-rbac/openedx_rbac/models.py
+  found_by: django
+  line_number: 24
+  report_group_id: 8

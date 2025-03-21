@@ -1,43 +1,37 @@
 """
 Database models for openedx_rbac.
 """
-# from django.db import models
+from django.db import models
 from model_utils.models import TimeStampedModel
 
 
-class role(TimeStampedModel):
+class Role(TimeStampedModel):
     """
-    TODO: replace with a brief description of the model.
+    Represents a role within the system, used to assign permissions to users.
 
-    TODO: Add either a negative or a positive PII annotation to the end of this docstring.  For more
-    information, see OEP-30:
-    https://open-edx-proposals.readthedocs.io/en/latest/oep-0030-arch-pii-markup-and-auditing.html
+    .. pii: True
+    .. pii_types: id
+    .. pii_retirement: local_api
     """
 
-    # TODO: add field definitions
+    name = models.CharField(max_length=255, unique=True)
 
     def __str__(self):
-        """
-        Get a string representation of this model instance.
-        """
-        # TODO: return a string appropriate for the data fields
-        return '<role, ID: {}>'.format(self.id)
+        return f'<Role, ID: {self.id}, Name: {self.name}>'
 
 
-class permission(TimeStampedModel):
+
+class Permission(TimeStampedModel):
     """
-    TODO: replace with a brief description of the model.
+    Defines specific permissions that can be assigned to roles within the system.
 
-    TODO: Add either a negative or a positive PII annotation to the end of this docstring.  For more
-    information, see OEP-30:
-    https://open-edx-proposals.readthedocs.io/en/latest/oep-0030-arch-pii-markup-and-auditing.html
+    .. pii: True
+    .. pii_types: id
+    .. pii_retirement: local_api
     """
 
-    # TODO: add field definitions
+    name = models.CharField(max_length=255, unique=True)
 
     def __str__(self):
-        """
-        Get a string representation of this model instance.
-        """
-        # TODO: return a string appropriate for the data fields
-        return '<permission, ID: {}>'.format(self.id)
+        return f'<Permission, ID: {self.id}, Name: {self.name}>'
+
